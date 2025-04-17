@@ -19,7 +19,7 @@ int main()
 {
 	int n, m;
 	cin >> n >> m;
-	int a[n], b[m];
+	vector<int> a(n), b(m);
 	for (int i = 0; i < n; i++)
 	{
 		cin >> a[i];
@@ -27,11 +27,9 @@ int main()
 	for (int i = 0; i < m; i++) {
 		cin >> b[i];
 	}
-	sort(a, a + n);
-	sort(b, b + m);
-	for (int x : b) {
-		auto it = lower_bound(a, a + n, x);
-		cout << it - a << " ";
+	for (auto x : b) {
+		auto it = lower_bound(a.begin(), a.end(), x);
+		cout << it - a.begin() << " ";
 	}
 }
 
